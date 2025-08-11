@@ -23,24 +23,6 @@
         "python.analysis.diagnosticSeverityOverrides": {
           "reportUnusedFunction": "none"
         },
-        "pylint.path": [
-          "pylint"
-        ],
-        "flake8.path": [
-          "flake8"
-        ],
-        "flake8.args": [
-          "--config=${containerWorkspaceFolder}/grizzly-ls/pyproject.toml"
-        ],
-        "black-formatter.path": [
-          "black"
-        ],
-        "black-formatter.args": [
-          "--config=${containerWorkspaceFolder}/grizzly-ls/pyproject.toml"
-        ],
-        "pylint.args": [
-          "--rcfile=${containerWorkspaceFolder}/grizzly-ls/pyproject.toml"
-        ],
         "editor.formatOnSave": true,
         "python.testing.cwd": "./grizzly-ls",
         "python.testing.pytestArgs": [
@@ -65,9 +47,16 @@
           "typescript"
         ],
         "[python]": {
-          "editor.defaultFormatter": "ms-python.black-formatter",
-          "editor.formatOnSave": true
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "always",
+            "source.organizeImports.ruff": "never"
+          }
         },
+        "ruff.lint.ignore": [
+          "F401"
+        ],
         "[typescript]": {
           "editor.defaultFormatter": "dbaeumer.vscode-eslint"
         }
@@ -77,14 +66,12 @@
         "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-python.vscode-pylance",
-        "ms-python.pylint",
-        "ms-python.flake8",
-        "ms-python.black-formatter",
         "EditorConfig.EditorConfig",
         "oderwat.indent-rainbow",
         "eamodio.gitlens",
         "ryanluker.vscode-coverage-gutters",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "charliermarsh.ruff"
       ]
     }
   },
